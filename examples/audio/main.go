@@ -76,7 +76,7 @@ func installSystem() (models.Path, error) {
 
 	mdls, err := models.New()
 	if err != nil {
-		return models.Path{}, fmt.Errorf("unable to install llama.cpp: %w", err)
+		return models.Path{}, fmt.Errorf("unable to init models: %w", err)
 	}
 
 	fmt.Println("Downloading model:", modelSource)
@@ -110,7 +110,7 @@ func newKronk(mp models.Path) (*kronk.Kronk, error) {
 	}
 	fmt.Println()
 
-	fmt.Println("- contextWindow. :", krn.ModelConfig().ContextWindow())
+	fmt.Println("- contextWindow  :", krn.ModelConfig().ContextWindow())
 	fmt.Printf("- k/v            : %s/%s\n", krn.ModelConfig().CacheTypeK, krn.ModelConfig().CacheTypeV)
 	fmt.Println("- flashAttention :", krn.ModelConfig().FlashAttention)
 	fmt.Println("- nBatch         :", krn.ModelConfig().NBatch())

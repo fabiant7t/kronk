@@ -164,6 +164,12 @@ make example-audio
 make example-chat
 ```
 
+[CONCURRENCY](examples/concurrency/main.go) - This example shows you how to leverage concurrency using vision models.
+
+```shell
+make example-concurrency
+```
+
 [EMBEDDING](examples/embedding/main.go) - This example shows you a basic program using Kronk to perform an embedding operation.
 
 ```shell
@@ -291,7 +297,7 @@ func installSystem() (models.Path, error) {
 
 	mdls, err := models.New()
 	if err != nil {
-		return models.Path{}, fmt.Errorf("unable to install llama.cpp: %w", err)
+		return models.Path{}, fmt.Errorf("unable to init models: %w", err)
 	}
 
 	mp, err := mdls.Download(ctx, kronk.FmtLogger, modelSource)
